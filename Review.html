@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background:linear-gradient(280deg,#6ab5e7,#a85cc6);
+        }
+        .container {
+            width: 50%;
+            margin: 0 auto;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        #see-reviews-button {
+            background-color: #1aff00;
+            color: rgb(5, 55, 12);
+            padding: 10px 20px;
+            border-color: rgb(3, 104, 10);
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        #submit-button{
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border-color: rgb(94, 236, 255);
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h3>{{ product_name }}</h3>
+        <h1>Review Sentiment Analysis</h1>
+        <form action="{{url_for('register')}}" method="POST">
+            <input type="text" name="product_name" id="product_name" placeholder="Enter product name"   style="width: 60%;padding: 10px; border-radius: 10px;" value="{{product_name}}" required>
+            
+            <!-- <button type="button" id="see-reviews-button">See Chart</button><br><br> -->
+            <a href="templates\chart.html" id="see-reviews-button" >See chart</a> <br><br>
+            <input type="submit"  id="submit-button" value="Analyze Sentiment">
+            <!-- <button type="button" id="submit-button">Analyze Sentiment</button> -->
+
+        </form>
+    </div>
+    <div align = center>
+        
+        <h3>Positive :{{X}}%</h3>
+        <h3>Neutral : {{Y}}%</h3>
+        <h3>Negative :{{Z}}%</h3>
+        <h4>Pie Chart</h4>
+        <img src="{{image_path}}">
+    </div>
+
+    
+    
+    
+</body>
+</html>
